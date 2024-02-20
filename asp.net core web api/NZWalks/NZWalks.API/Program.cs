@@ -34,7 +34,7 @@ builder.Services.AddSwaggerGen(options =>
                     Type = ReferenceType.SecurityScheme,
                     Id = JwtBearerDefaults.AuthenticationScheme
                 },
-                Scheme = "oauth2", // Note the lowercase "oauth2"
+                Scheme = "oauth2", 
                 Name = JwtBearerDefaults.AuthenticationScheme,
                 In = ParameterLocation.Header
             },
@@ -75,7 +75,6 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
-    {
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -85,7 +84,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-        };
     });
 
 var app = builder.Build();

@@ -52,3 +52,4 @@ C:\Sciqus\asp.net core web api\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.Id
 C:\Sciqus\asp.net core web api\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Sciqus\asp.net core web api\NZWalks\NZWalks.API\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Sciqus\asp.net core web api\NZWalks\NZWalks.API\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Sciqus\asp.net core web api\NZWalks\NZWalks.API\obj\Debug\net8.0\NZWalks.API.sourcelink.json

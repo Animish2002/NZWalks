@@ -36,23 +36,23 @@ namespace NZWalks.API.Controllers
                 // Add roles to this user
                 if (registerRequestDto.Roles != null && registerRequestDto.Roles.Any())
                 {
-                    foreach (var roleName in registerRequestDto.Roles)
+                    foreach (var role in registerRequestDto.Roles)
                     {
-                        identityResult = await userManager.AddToRoleAsync(identityUser, roleName);
+                        identityResult = await userManager.AddToRoleAsync(identityUser, role);
 
                         if (!identityResult.Succeeded)
                         {
-                            return BadRequest("Failed to add user to role.");
+                            // If adding a role fails, you might want to handle this appropriately
+                            return BadRequest($"Failed to add role '{role}' to the user.");
                         }
                     }
-                }
 
-                return Ok("User was registered! Please login");
+                    return Ok("User was registered! Please login");
+                }
             }
 
             return BadRequest("Failed to register user.");
         }
-
 
         //POST: /api/Auth/Login
         [HttpPost]
@@ -61,14 +61,14 @@ namespace NZWalks.API.Controllers
         {
             var user = await userManager.FindByEmailAsync(loginRequestDto.Username);
 
-            if(user != null) 
+            if (user != null)
             {
                 var checkPasswordResult = await userManager.CheckPasswordAsync(user, loginRequestDto.Password);
 
                 if (checkPasswordResult)
                 {
-                   var roles = await userManager.GetRolesAsync(user);
-                    if(roles != null)
+                    var roles = await userManager.GetRolesAsync(user);
+                    if (roles != null)
                     { //create  token
                         var jwtToken = tokenRepository.CreateJWTToken(user, roles.ToList());
 
@@ -79,7 +79,7 @@ namespace NZWalks.API.Controllers
 
                         return Ok(response);
                     }
-                    
+
                 }
             }
             return BadRequest("Username or password incorrect");
