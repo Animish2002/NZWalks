@@ -11,8 +11,8 @@ using NZWalks.API.Data;
 namespace NZWalks.API.Migrations
 {
     [DbContext(typeof(NZWalksDbContext))]
-    [Migration("20240220063744_Adding images Table")]
-    partial class AddingimagesTable
+    [Migration("20240220143915_Adding Images Table")]
+    partial class AddingImagesTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,17 +39,17 @@ namespace NZWalks.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3e26a9e3-b247-4ed1-848b-9a6cbf948854"),
+                            Id = new Guid("487ab5d8-4d39-41c3-b64f-62d235307aef"),
                             Name = "Easy"
                         },
                         new
                         {
-                            Id = new Guid("42f72a32-d91d-4fc4-af70-60646e41bf8a"),
+                            Id = new Guid("d7d6d5bc-ea30-42cf-b94e-7b83640072c4"),
                             Name = "Medium"
                         },
                         new
                         {
-                            Id = new Guid("d4e8ad2b-ee8d-4371-bcc8-d9ed348ca0a7"),
+                            Id = new Guid("500aff2a-b67d-425e-8656-0b5ed1464c79"),
                             Name = "Hard"
                         });
                 });
@@ -64,6 +64,7 @@ namespace NZWalks.API.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("FileExtension")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FileName")
@@ -106,26 +107,26 @@ namespace NZWalks.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ea7c7efa-cdc0-4a5d-95f4-6fddf826adda"),
+                            Id = new Guid("490df01d-b5c4-46c8-9e92-b47dd30a0481"),
                             Code = "AKL",
                             Name = "Auckland",
                             RegionImageUrl = "https://images.pexels.com/photos/5169056/pexels-photo-5169056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         },
                         new
                         {
-                            Id = new Guid("392b1ced-cdb7-4e7c-9405-e0cbd18a3555"),
+                            Id = new Guid("537fa8bf-37bf-4dc3-bdfb-5cc81dc13576"),
                             Code = "NTL",
                             Name = "Northland"
                         },
                         new
                         {
-                            Id = new Guid("3a14b412-791b-4427-845a-07e6c5644e63"),
+                            Id = new Guid("fd7cbf6e-f266-4466-8650-ece33d7e7c9f"),
                             Code = "BOP",
                             Name = "Bay Of Plenty"
                         },
                         new
                         {
-                            Id = new Guid("08730daf-3793-4508-8103-7403f2064506"),
+                            Id = new Guid("d8d7b43e-2a46-4e35-87a9-95756db213c2"),
                             Code = "WGN",
                             Name = "Wellington",
                             RegionImageUrl = "https://images.pexels.com/photos/4350631/pexels-photo-4350631.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
